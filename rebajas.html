@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rebajas - Sonika</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    .rebajas-hero {
+      background-color: #ffffff;
+      padding: 140px 2rem 3rem;
+      text-align: center;
+    }
+
+    .rebajas-hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .rebajas-hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .rebajas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      padding: 0 2rem;
+    }
+
+    .rebaja-card {
+      background-color: #fefefe;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .rebaja-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .rebaja-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .rebaja-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .precio-anterior {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 1rem;
+    }
+
+    .precio-actual {
+      font-size: 1.5rem;
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    .etiqueta-descuento {
+      background-color: #e74c3c;
+      color: #fff;
+      display: inline-block;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-top: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-glass">
+    <div class="logo-text">
+      <h1>SONIKA</h1>
+      <p>Moda Urbana</p>
+    </div>
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+    <nav class="menu" id="main-menu">
+      <ul class="menu-list">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="sucursales.html" class="nav-link">Sucursales</a></li>
+        <li><a href="productos.html" class="nav-link">Productos</a></li>
+        <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+        <li><a href="rebajas.html" class="nav-link active">Rebajas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="rebajas-hero">
+    <h2>🔥 Rebajas Exclusivas</h2>
+    <p>¡Aprovecha las mejores ofertas antes de que se agoten!</p>
+    <p>Pregunta en tienda por tu Top</p>
+
+    <div class="rebajas-grid">
+      <!-- Producto con rebaja -->
+      <div class="rebaja-card">
+        <img src="assets/Productos/rebaja_1.jpg" alt="Blusa Roja Casual">
+        <h3>top1</h3>
+        <p class="precio-anterior">$449 MXN</p>
+        <p class="precio-actual">$299 MXN</p>
+        <div class="etiqueta-descuento">-33%</div>
+      </div>
+
+      <div class="rebaja-card">
+        <img src="assets/Productos/rebaja_2.jpg" alt="Jeans Azul Slim">
+        <h3>top2</h3>
+        <p class="precio-anterior">$599 MXN</p>
+        <p class="precio-actual">$399 MXN</p>
+        <div class="etiqueta-descuento">-34%</div>
+      </div>
+
+      <div class="rebaja-card">
+        <img src="assets/Productos/rebaja_3.jpg" alt="Sudadera Oversize Negra">
+        <h3>top3</h3>
+        <p class="precio-anterior">$750 MXN</p>
+        <p class="precio-actual">$520 MXN</p>
+        <div class="etiqueta-descuento">-31%</div>
+      </div>
+
+      <div class="rebaja-card">
+        <img src="assets/Productos/rebaja_4.jpg" alt="Tenis Urbanos Blancos">
+        <h3>Top4</h3>
+        <p class="precio-anterior">$870 MXN</p>
+        <p class="precio-actual">$620 MXN</p>
+        <div class="etiqueta-descuento">-29%</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; Todos los Derechos e Imágenes están respaldadas<br>
+    Administración página Web Rodolfo Roman Cruz, Carlos Santana Chavez Martínez, Diego Martinez López<br>
+    Contacto: 4931889951 rodolforonan@gmail.com</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

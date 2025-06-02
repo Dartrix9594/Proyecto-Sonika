@@ -1,0 +1,605 @@
+/* Variables de diseño */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --text-light: #ecf0f1;
+    --text-dark: #2c3e50;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: #f9f9f9;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header - Efecto vidrio y full-width */
+.header-glass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--text-light);
+    letter-spacing: 2px;
+}
+
+.logo p {
+    font-size: 1rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+/* Menú desktop */
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('../assets/imagenes/fondo-index.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    margin-top: 0; /* Elimina espacio extra por el header fixed */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    animation: fadeIn 2s ease;
+}
+
+.hero-phone {
+    font-size: 1.2rem;
+    animation: fadeIn 2.5s ease;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    margin-top: auto;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .header-glass {
+        padding: 0% 0%;
+    }
+
+    .menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background: var(--primary-color);
+        flex-direction: column;
+        transition: left 0.3s ease;
+    }
+
+    .menu.active {
+        left: 0;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+/* Estilos para la página de sucursales */
+.sucursales-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.section-title span {
+    color: var(--secondary-color);
+}
+
+.sucursal-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.sucursal-card:hover {
+    transform: translateY(-5px);
+}
+
+.sucursal-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.sucursal-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.map-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.map-button:hover {
+    background-color: #c0392b;
+}   
+/* Estilos para el logo de texto */
+.logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.logo-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: white;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Fondo para la página de sucursales */
+.sucursales-hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('../assets/imagenes/fondo-sucursales.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 2rem 2rem; /* Ajuste para el header fijo */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay más claro para mejor legibilidad */
+}
+
+.sucursales-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+}
+
+/* Ajustes para las cards en el fondo */
+.sucursal-card {
+    background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+    color: #333; /* Texto oscuro para contraste */
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(5px);
+}
+/* Estilos específicos para eventos */
+.eventos-hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('../assets/imagenes/fondo-eventos.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 2rem 2rem;
+}
+
+.eventos-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+}
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.evento-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.evento-card:hover {
+    transform: translateY(-10px);
+}
+
+.evento-flyer img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.evento-info {
+    padding: 1.5rem;
+    color: #333;
+}
+
+.evento-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.evento-lugar {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.evento-fecha {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.evento-boton {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.evento-boton:hover {
+    background: #c0392b;
+}
+.productos-hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('../assets/imagenes/fondo-productos.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 2rem 2rem;
+}
+
+.productos-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.producto-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.producto-card h3 {
+  margin: 1rem 0;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+}
+
+.producto-card:hover {
+  transform: translateY(-8px);
+}
+.submenu-container {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary-color);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0 0 6px 6px;
+  display: none;
+  min-width: 150px;
+  z-index: 1001;
+}
+
+.submenu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.submenu li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.submenu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.submenu-container:hover .submenu {
+  display: block;
+}
+/* Submenú solo visible en escritorio */
+.submenu-container {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary-color);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0 0 6px 6px;
+  display: none;
+  min-width: 150px;
+  z-index: 1001;
+}
+
+.submenu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.submenu li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.submenu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.submenu-container:hover .submenu {
+  display: block;
+}
+
+/* Ocultar submenú en móviles */
+@media (max-width: 768px) {
+  .submenu {
+    display: none !important;
+  }
+}
+.tarjeta-grande {
+  background: #ffffff;
+  color: #222;
+  font-size: 1.1rem;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-grande:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta-grande h3 {
+  font-size: 1.8rem;
+  margin: 1rem 0 0.5rem;
+  color: var(--primary-color);
+}
+
+.tarjeta-grande p {
+  margin: 0.5rem 0;
+}
+
+.precio {
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.disponible {
+  font-style: italic;
+  color: green;
+  font-weight: 600;
+}
+/* Imagen de fondo ya viene de esta clase: */
+.productos-hero {
+  background-image: url('../assets/imagenes/fondo-productos.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 120px 2rem 2rem;
+  min-height: 100vh;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.fondo-blanco {
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  font-size: 1.1rem;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fondo-blanco:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.fondo-blanco h3 {
+  font-size: 1.8rem;
+  margin: 1rem 0 0.5rem;
+  color: var(--primary-color);
+}
+
+.fondo-blanco p {
+  margin: 0.5rem 0;
+}
+
+.precio {
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.disponible {
+  font-style: italic;
+  color: green;
+  font-weight: 600;
+}
+.rebajas-hero {
+  background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+  color: white;
+  padding: 140px 2rem 3rem;
+  text-align: center;
+}
